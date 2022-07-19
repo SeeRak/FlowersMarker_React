@@ -1,6 +1,5 @@
 import './ShoppingList.css';
 import { plantList } from '../../datas/plantList';
-import CareScale from '../CareScale/CareScale';
 import PlantItem from '../PlantItem/PlantItem';
 import Cover from '../../assets/monstera.jpg';
 import Categories from '../Categories/Categories';
@@ -9,6 +8,7 @@ import { useState } from 'react';
 function ShoppingList(props: { cart: any, updateCart: any }) {
 
     const [activeCategorie, setActiveCategories] = useState('');
+
     let categories = Array<string>();
 
     plantList.forEach((element) => {
@@ -18,7 +18,9 @@ function ShoppingList(props: { cart: any, updateCart: any }) {
     })
 
     function addToCart(name: string, price: number){
+
         const currentPlantAdded = props.cart.find((plant: any) => plant.name === name);
+        
         if(currentPlantAdded){
             const cartFilteredCurrentPlant = props.cart.filter(
                 (plant: any) => plant.name !== name
@@ -39,7 +41,7 @@ function ShoppingList(props: { cart: any, updateCart: any }) {
             <Categories listCategories = {categories} activeCategory = {activeCategorie} setActiveCategory = {setActiveCategories} />
         </ul>
         <ul className='flm-plant-list'>
-            {activeCategorie != '' ? plantList.filter((plant: any) => plant.category === activeCategorie).map((plant: any) => (
+            {activeCategorie !== '' ? plantList.filter((plant: any) => plant.category === activeCategorie).map((plant: any) => (
                 <div key={plant.id}>
                     <PlantItem id={plant.id} name={plant.name} cover={Cover} light={plant.light} water={plant.water} price={plant.price} />
                     <button onClick={() => addToCart(plant.name, plant.price)}>Ajouter</button>

@@ -31,11 +31,10 @@ function CareScale(props: { scaleValue: number; careType: string }) {
 
     return (
         <div onClick={() => onClick()}>
-        {range.map((rangeElem) => props.scaleValue >= rangeElem ? <span key={rangeElem.toString()}>{scaleType}</span> : null
-        )}
-    </div>)
-
-    
+            {range.map((rangeElem) => props.scaleValue >= rangeElem ? <span key={rangeElem.toString()}>{scaleType}</span> : null
+            )}
+        </div>
+    )    
 }
     
 export default CareScale;

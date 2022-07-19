@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 function Cart(props : { cart: any, updateCart: any }) {
 
     const [isOpen, setIsOpen] = useState(false);
+    
     const total = props.cart.reduce(
         (acc: number, plant: { amount: number; price: number; }) => acc + plant.amount * plant.price, 0
     )  

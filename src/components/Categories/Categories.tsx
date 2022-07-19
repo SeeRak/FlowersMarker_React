@@ -13,7 +13,6 @@ function Categories(props: { listCategories : string[], activeCategory : string,
             </select>
             <button onClick={() => props.setActiveCategory('')}>Clear</button>
         </div>
-
     )
 }
 

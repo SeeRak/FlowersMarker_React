@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './Footer.css';
 
 function Footer() {
+
 	const [inputValue, setInputValue] = useState('')
     
     function checkInput(){    
@@ -19,7 +20,6 @@ function Footer() {
             <input value={inputValue} onChange={(e) => setInputValue(e.target.value)} onBlur={checkInput}></input>
 		</footer>
 	)   
-
 }
 
 export default Footer
